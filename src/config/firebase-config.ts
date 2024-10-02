@@ -4,13 +4,13 @@ import { getDatabase, Database } from 'firebase/database';
 import { getStorage } from 'firebase/storage';
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_API_KEY as string,
-  authDomain: import.meta.env.VITE_AUTH_DOMAIN as string,
-  projectId: import.meta.env.VITE_PROJECT_ID as string,
-  storageBucket: import.meta.env.VITE_STORAGE_BUCKET as string,
-  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID as string,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID as string,
-  databaseURL: import.meta.env.VITE_FIREBASE_DATABASE_URL as string,
+  apiKey: process.env.REACT_APP_API_KEY as string,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN as string,
+  projectId: process.env.REACT_APP_PROJECT_ID as string,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET as string,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID as string,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID as string,
+  databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL as string,
 };
 
 const app: FirebaseApp = initializeApp(firebaseConfig);

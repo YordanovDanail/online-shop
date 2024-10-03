@@ -1,8 +1,8 @@
 import { useContext, useState } from 'react';
-import { AppContext } from '../state/AppContext';
+import { AppContext } from '../../state/AppContext';
 import { NavLink, useNavigate } from 'react-router-dom';
-import LoginModal from './LoginModal';
-import LogoutButton from './LogoutButton';
+import LoginModal from '../LoginModal/LoginModal';
+import LogoutButton from '../LogoutButton/LogoutButton';
 
 const Header: React.FC = () => {
   const { user } = useContext(AppContext);
@@ -15,6 +15,12 @@ const Header: React.FC = () => {
       <nav className="space-x-4">
         <NavLink to="/" className="text-white hover:text-gray-300">
           Home
+        </NavLink>
+        <NavLink
+          to="/items"
+          className="text-white hover:text-teal-300 font-semibold transition duration-300"
+        >
+          Items
         </NavLink>
 
         {/* Conditionally render login/register or logout button */}

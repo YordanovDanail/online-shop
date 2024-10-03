@@ -1,8 +1,8 @@
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import { AppContext } from '../state/AppContext';
-import { loginUser } from '../services/auth.service';
+import { AppContext } from '../../state/AppContext';
+import { loginUser } from '../../services/auth.service';
 
 interface LoginModalProps {
   isVisible: boolean;

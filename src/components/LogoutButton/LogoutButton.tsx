@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { useContext } from 'react';
-import { AppContext } from '../state/AppContext';
-import { auth } from '../config/firebase-config';
+import { AppContext } from '../../state/AppContext';
+import { auth } from '../../config/firebase-config';
 
 const LogoutButton = () => {
   const navigate = useNavigate();

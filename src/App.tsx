@@ -6,10 +6,11 @@ import { auth } from './config/firebase-config';
 import { User as FirebaseUser } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { getUserData } from './services/user.service';
-import Header from './components/Header';
-import RegistrationPage from './views/RegistrationPage';
+import Header from './components/Header/Header';
+import RegistrationPage from './views/RegistrationPage/RegistrationPage';
 import Home from './views/Home/Home';
 import NotFound from './views/NotFound/NotFound';
+import ItemsPage from './views/ItemsPage/ItemsPage';
 
 interface AppState {
   user: FirebaseUser | null;
@@ -55,7 +56,8 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/register" element={<RegistrationPage />} />
-            <Route path="*" element={<NotFound />} />
+            <Route path="/items" element={<ItemsPage />} />
+            <Route path="*" element={<NotFound />} />            
           </Routes>
         </div>
         <footer>&copy; Online Shop</footer>

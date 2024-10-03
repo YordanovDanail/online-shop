@@ -1,10 +1,10 @@
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import { AppContext } from '../state/AppContext';
-import { createUser, getEmail, getPhoneNumber, getUserByUsername } from '../services/user.service';
-import { registerUser } from '../services/auth.service';
-import { EMAIL_REGEX, PASSWORD_REGEX, USER_REGEX, PHONE_REGEX } from '../common/regex';
+import { AppContext } from '../../state/AppContext';
+import { createUser, getEmail, getPhoneNumber, getUserByUsername } from '../../services/user.service';
+import { registerUser } from '../../services/auth.service';
+import { EMAIL_REGEX, PASSWORD_REGEX, USER_REGEX, PHONE_REGEX } from '../../common/regex';
 
 const RegistrationPage = () => {
   const { setAppState } = useContext(AppContext);

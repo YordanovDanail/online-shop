@@ -11,6 +11,7 @@ import RegistrationPage from './views/RegistrationPage/RegistrationPage';
 import Home from './views/Home/Home';
 import NotFound from './views/NotFound/NotFound';
 import ItemsPage from './views/ItemsPage/ItemsPage';
+import { UploadItems } from './views/UploadItems/UploadItems';
 
 interface AppState {
   user: FirebaseUser | null;
@@ -54,10 +55,11 @@ export default function App() {
         <Header />
         <div className="main-content">
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/register" element={<RegistrationPage />} />
-            <Route path="/items" element={<ItemsPage />} />
-            <Route path="*" element={<NotFound />} />            
+            <Route path="/"          element={<Home />} />
+            <Route path="/upload"    element={<UploadItems />} />
+            <Route path="/register"  element={<RegistrationPage />} />
+            <Route path="/items"     element={<ItemsPage />} />
+            <Route path="*"          element={<NotFound />} />            
           </Routes>
         </div>
         <footer>&copy; Online Shop</footer>

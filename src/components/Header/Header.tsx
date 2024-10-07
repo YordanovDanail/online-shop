@@ -22,6 +22,16 @@ const Header: React.FC = () => {
         >
           Items
         </NavLink>
+        
+        {/* Conditionally render upload button */}
+        {user && (
+          <NavLink
+            to="/upload"
+            className="text-white hover:text-teal-300 font-semibold transition duration-300"
+          >
+            Upload
+          </NavLink>
+        )}
 
         {/* Conditionally render login/register or logout button */}
         {user ? (

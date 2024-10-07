@@ -7,6 +7,8 @@ export interface Item {
     condition: 'new' | 'used';
     createdAt: string;
     imageUrl: string;
+    username: string;
     userId: string;
+    quantity: number
   }
   

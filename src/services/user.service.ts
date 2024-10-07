@@ -32,17 +32,19 @@ export const createUser = async (
 };
 
 export const getUserData = async (uid: string): Promise<any> => {
-  const userRef = ref(db);
+  const userRef = query(ref(db, 'users'), orderByChild('uid'), equalTo(uid));
   try {
-    const snapshot = await get(child(userRef, `users/${uid}`));
-    if (snapshot.exists()) {
-      return snapshot.val();
-    } else {
-      throw new Error('User data not found');
+    const snapshot = await get(userRef);
+    if (!snapshot.exists()) {
+      throw new Error('User not found');
     }
+
+    const userData = snapshot.val();
+    const userKey = Object.keys(userData)[0];
+    return userData[userKey];
   } catch (error: any) {
-    console.error('Error fetching user data:', error);
-    throw new Error('Failed to retrieve user data');
+    console.error('Error retrieving user data:', error);
+    throw new Error('Failed to retrieve user data: ' + error.message);
   }
 };
 
@@ -51,10 +53,12 @@ export const getUserByUsername = async (username: string): Promise<User | null> 
   const userRef = ref(db, `users/${username}`);
   try {
     const snapshot = await get(userRef);
-    if (snapshot.exists()) {
-      return snapshot.val() as User;
+    if (!snapshot.exists()) {
+      return null;
     }
-    return null;
+
+    const user = snapshot.val();
+    return user as User;
   } catch (error: any) {
     console.error('Error retrieving user by username:', error);
     throw new Error('Failed to retrieve user: ' + error.message);
